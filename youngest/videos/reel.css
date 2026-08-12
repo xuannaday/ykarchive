@@ -1,0 +1,127 @@
+.reels-section {
+    background: linear-gradient(
+        135deg,
+        #edf7f6 0%,
+        #d1e8e5 100%
+    );
+
+    padding: 30px;
+    border-radius: 20px;
+    color: #2c4a44;
+}
+
+
+.reels-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+
+/* 影片排列 */
+.reels-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 20px;
+}
+
+
+
+/* 單張卡片 */
+.reel-card {
+
+    position: relative;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    color: #2c4a44;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.reel-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.15);
+}
+
+
+
+/* 9:16 Reels 比例 */
+.reel-card img {
+
+    width: 100%;
+
+    aspect-ratio: 9 / 16;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+
+/* 播放按鈕 */
+.reel-overlay {
+
+    position: absolute;
+
+    top: 45%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.85);
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    color:#2c4a44;
+
+    font-size:25px;
+}
+
+
+.reel-card p {
+
+    padding: 12px;
+
+    margin:0;
+
+    text-align:center;
+
+    font-size:15px;
+}
