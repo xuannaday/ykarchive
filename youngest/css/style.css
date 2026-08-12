@@ -37,6 +37,7 @@
       background-color: var(--bg-body) !important; 
 	  color: var(--text-main) !important; 
 	  margin: 0 !important; padding: 0 !important; 
+	  width: 100% !important;
       overflow-x: hidden !important; 
 	  height: auto !important; 
 	  -webkit-text-size-adjust: 100%;
