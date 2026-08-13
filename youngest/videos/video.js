@@ -2,6 +2,14 @@
 const videos = [
 
 {
+title:"[SUB] 내 혈육 초딩 오빠 영케이",
+category:"訪談",
+date:"2026.08.13",
+videoId:"fqVfO6MwMr0",
+description:"조나단"
+},
+
+{
 title:"Young K 2nd Full Album ＜YOUNGEST＞ Busking Live Behind",
 category:"幕後花絮",
 date:"2026.08.11",
