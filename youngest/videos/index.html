@@ -186,7 +186,7 @@
     .video-responsive-wrapper {
         position: relative;
         width: 100%;
-        padding-bottom: 56.25%; /* 16:9 神奇比例 */
+        padding-bottom: 56.25%; /* 16:9 */
         background: #000;
         transition: all 0.3s ease;
     }
@@ -305,7 +305,7 @@
     .unified-reaction-box { 
         background-color: var(--reaction-box-bg) !important;
         border-radius: 12px; 
-        margin: 20px; /* 完美對齊畫報寬度 */
+        margin: 20px; 		/* 對齊畫報寬度 */
         padding: 20px; 
         text-align: center; 
         border: 1px solid var(--intro-border);
@@ -318,7 +318,7 @@
     .reaction-section { text-align: center !important; width: 100%; }
     .reaction-wall { 
 		display: flex; 
-		justify-content: center; /* 確保按鈕排隊置中 */ 
+		justify-content: center; /* 按鈕排隊置中 */ 
 		*flex-wrap: wrap; 
 		gap: 10px; 
 		margin-top: 15px; 
@@ -658,6 +658,7 @@
 		font-size:16px;				/* 標題文字大小 */
 		font-weight:500;			/* 字體粗細 */
 		color: var(--text-main); 	/* 使用主題文字顏色 */
+		
 		gap: 20px;					/* 元素間距 */
 	}
 	
@@ -683,19 +684,17 @@
 		background-color: var(--btn-hover);
 	}
 	
+
 	</style>
     <!-- Vercel Analytics -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script>	  
   </head>
 
 <body>
 
-	<!--<header>
-		<h2>YOUNGEST | Video Archive</h2>
-	-->
   <!--<div class="content-wrapper">-->
     <header class="header">
     <div class="header-top">
@@ -757,7 +756,7 @@
 		</button>
 
 		<button onclick="filterVideos('Live 演唱')">
-			Live 演唱
+			Live/現場演唱
 		</button>
 
 		<button onclick="filterVideos('綜藝節目')">
@@ -790,7 +789,7 @@
 	</header>
   <!--</div>-->
 
-	<!-- 用來放置分頁按鈕的容器 -->
+	<!-- 分頁按鈕 -->
 	<div id="pagination-container" class="pagination"></div>
 
 	<script src="video.js"></script>
