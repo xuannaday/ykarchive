@@ -8,9 +8,7 @@
 	<title>Shut The Door歌詞應援</title>
 	<link rel="stylesheet" href="../css/style.css">
 
-	<!--讀取使用者之前選的主題-->
-	<!--把主題設定到 <html>-->
-	<!--設定全域影片 ID-->
+	<!--讀取使用者之前選的主題，把主題設定到 <html>-->
 	<script>
 		const savedTheme = localStorage.getItem('pageTheme') || 'light';
 		document.documentElement.setAttribute('data-theme', savedTheme);	
@@ -75,9 +73,20 @@
 			</button>
 			<!-- 點擊後展開的功能選單內容 -->
 			<div class="controls-dropdown" id="controlsDropdown">
+				<!-- 顯示主題 -->
 				<div class="theme-toggle-group">
 					<button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
 					<button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
+				</div>
+			    <!-- 其他歌曲 -->
+				<div class="menu-section-title song-menu-title" onclick="toggleSongMenu()">
+					<span>YOUNGEST歌曲 </span>
+					<span id="song-menu-arrow">▼</span>
+				</div>
+
+				<div class="song-menu-list" id="songMenuList">
+					<div class="menu-link menu-current">Shut The Door</div>
+					<a href="nothingbut.html" class="menu-link">nothing but</a>
 				</div>
 			</div>
 		</div>
@@ -101,12 +110,12 @@
               <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
       </div>
-      
+  
       <!-- Singalong 應援歌詞 -->
       <div class="lyrics-container" id="stdsa-container">
-        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; position: relative; margin-bottom: 15px; gap: 12px;">
+        <div class="lyrics-header">
           <h3 class="lyrics-title">🎵 Shut The Door </h3>
-          <div style="display: flex; gap: 8px;">
+          <div class="font-controls">
             <button class="font-btn" onclick="adjustFontSize('stdsa-lyrics', -2)">A -</button>
             <button class="font-btn" onclick="adjustFontSize('stdsa-lyrics', 2)">A +</button>
           </div>
@@ -177,12 +186,12 @@
               <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
       </div>
-      
+ 
       <!-- M/V 應援歌詞 -->
       <div class="lyrics-container" id="stdmv-container">
-        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; position: relative; margin-bottom: 15px; gap: 12px;">
+        <div class="lyrics-header">
           <h3 class="lyrics-title">🚪 Shut The Door</h3>
-          <div style="display: flex; gap: 8px;">
+          <div class="font-controls">
             <button class="font-btn" onclick="adjustFontSize('stdmv-lyrics', -2)">A -</button>
             <button class="font-btn" onclick="adjustFontSize('stdmv-lyrics', 2)">A +</button>
           </div>
@@ -245,17 +254,7 @@
     </div>
   </div>
 
-  <script async src="//www.instagram.com/embed.js"></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
-  
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-    const firebaseConfig = { apiKey: "AIzaSyAs9R785IE_kBsduUdEng3Vfqz1Ljl11f4", authDomain: "flareu-tw-translation.firebaseapp.com", databaseURL: "https://flareu-tw-translation-default-rtdb.asia-southeast1.firebasedatabase.app", projectId: "flareu-tw-translation", storageBucket: "flareu-tw-translation.firebasestorage.app", messagingSenderId: "753531558153", appId: "1:753531558153:web:7106f9c2d253cae62fdbd8" };
-    const app = initializeApp(firebaseConfig);
-    window.db = getDatabase(app); window.fb_ref = ref; window.fb_onValue = onValue; window.fb_runTransaction = runTransaction; 
-  </script>
-
+	<script src="https://www.youtube.com/iframe_api"></script>
 	<script src="../../js/reaction-core.js"></script>
 	<script src="../js/std-script.js"></script>
 
