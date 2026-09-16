@@ -8,9 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>YOUNGEST Video Archive</title>
 	<link rel="stylesheet" href="video.css">
-	<!--讀取使用者之前選的主題-->
-	<!--把主題設定到 <html>-->
-	<!--設定全域影片 ID-->
+	<!--讀取使用者之前選的主題，把主題設定到 <html>-->
 	<script>
 		const savedTheme = localStorage.getItem('pageTheme') || 'light';
 		document.documentElement.setAttribute('data-theme', savedTheme);	
@@ -94,15 +92,6 @@
 		line-height: 1.4; 
 	}
 
-    .controls-wrapper { 
-		display: flex; gap: 12px; 
-		align-items: center; 
-		margin-top: 10px; 
-		margin-bottom: 16px; 
-		flex-wrap: wrap;			/* 不夠寬時換下一行 */
-		justify-content: center; 	/* 整體置中 */
-	}
-	
     .home-btn { 
 		width: 32px;                 /* 按鈕寬度 */
 		height: 32px;                /* 按鈕高度 */
@@ -132,12 +121,17 @@
 		border: 1px solid var(--btn-border);
 		color: var(--btn-text);
 		font-size: 12px;
-
 		cursor: pointer;
 		transition: all 0.2s ease;
 	}	 
 	 
-	.theme-toggle-group { display: inline-flex; background-color: var(--theme-btn-bg); border-radius: 20px; padding: 4px; }
+	.theme-toggle-group { 
+		display: flex;
+		background-color: var(--theme-btn-bg); 
+		border-radius: 20px; 
+		padding: 4px; 
+		gap: 4px;
+	}
     .theme-btn { background: none; border: none; padding: 6px 16px; border-radius: 16px; font-size: 0.9rem; color: var(--theme-btn-text); cursor: pointer; font-weight: bold; }
     .theme-btn.active { background-color: var(--theme-btn-active); color: var(--text-main); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
@@ -297,7 +291,7 @@
     @media screen and (orientation: landscape) { .exit-fs-btn-global { right: calc(45px + env(safe-area-inset-right)) !important; top: 15px !important; } }
 
     /* ==================== 
-       5. 完美修復表情牆
+       5. 表情牆
        ==================== */
     /* 隱藏彈幕工具 */
     #barrage-toggle-btn, .barrage-control, #barrage-container, #emoji-trigger-btn, #emoji-drawer { display: none !important; }
@@ -319,7 +313,7 @@
     .reaction-wall { 
 		display: flex; 
 		justify-content: center; /* 按鈕排隊置中 */ 
-		*flex-wrap: wrap; 
+		flex-wrap: wrap; 
 		gap: 10px; 
 		margin-top: 15px; 
 	}
@@ -602,7 +596,7 @@
 		right: 0;
 		
 		width: 180px;        	/* 選單整體寬度 */
-		background: var(--card-bg, rgba(255, 255, 255, 0.9));
+		background-color: var(--theme-btn-bg);
 		border: 1px solid var(--card-border, #C3D9F0);
 		backdrop-filter: blur(15px);
 		border-radius: 16px;
@@ -627,22 +621,6 @@
 		visibility: visible;
 		transform: translateY(0);
 	}
-
-	/* 內部按鈕微調 */
-	.controls-wrapper {
-		display: flex;
-		gap: 8px;
-		align-items: center;
-		justify-content: flex-start;
-		margin: 2px 0;     /* 上下保留一點距離 */
-		padding: 0;
-		height: auto;
-	}
-	
-	.theme-toggle-group {
-		display: flex;
-		gap: 4px;
-	}
 	
 	.header-top{
 		width: 100%;					/* 讓這一列撐滿 Header 寬度 */
@@ -663,8 +641,8 @@
 	}
 	
 	.header-line {
-		flex: 1;			/* 自動填滿中間空間 */
-		height: 1px;		/* 線高度 */
+		flex: 1;							/* 自動填滿中間空間 */
+		height: 1px;						/* 線高度 */
 		background: rgba(128,128,128,0.2);	/* 淡淡分隔線 */
 	}
 
@@ -684,7 +662,6 @@
 		background-color: var(--btn-hover);
 	}
 	
-
 	</style>
     <!-- Vercel Analytics -->
     <script>
