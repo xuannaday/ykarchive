@@ -483,8 +483,8 @@ document.addEventListener('click', function(e) {
     dropdown.classList.remove('show');
 
     // 同時收合歌曲子選單
-    if (songMenu) songMenu.classList.remove('open');
-    if (arrow) arrow.textContent = '▼';
+    // if (songMenu) songMenu.classList.remove('open');
+    // if (arrow) arrow.textContent = '▼';
 });
 
 //歌曲下拉式選單
