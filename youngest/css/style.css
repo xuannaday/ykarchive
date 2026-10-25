@@ -713,7 +713,7 @@
 	}
 
 	.song-menu-list {
-    width: 100%;
+		width: 100%;
 		text-align: left !important;
 		display: none;
 	}
@@ -723,10 +723,14 @@
 	}
 
 	.song-menu-list .menu-link {
-		    display: block;
-    width: 100%;
+		display: block;
+		width: 100%;
 		text-align: left !important;	/*歌曲選單靠左對齊*/
+		box-sizing: border-box;			/*避免寬度超出容器*/
+		margin-right: 5px;				/*連結內容右側保留5px的內部空間*/
 	}
+
+
 	
 	.menu-current {
 		font-weight: 700;
