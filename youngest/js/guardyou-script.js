@@ -1,7 +1,14 @@
 // 影片資料
+const tab = document.getElementById('tab-video1');
+
 const videoData = {
-    'tab-video1': { id: 'tLcynwlNh38', player: null, subEl: 'subtitle-video1', container: 'player-container-video1' }
-};
+    'tab-video1': {
+        id: tab.dataset.videoId,
+        player: null,
+        subEl: 'subtitle-video1',
+        container: 'player-container-video1'
+    }
+}
 
 function updateButtonUI(theme) {
   document.getElementById('btn-light').classList.remove('active');
