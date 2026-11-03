@@ -475,17 +475,51 @@
 	
 	//歌曲下拉式選單
 	function toggleSongMenu() {
-		const songMenu = document.getElementById('songMenuList');
-		const arrow = document.getElementById('song-menu-arrow');
+		const menu = document.getElementById("songMenuList");
+		const arrow = document.getElementById("song-menu-arrow");
 
-		songMenu.classList.toggle('open');
+		const isOpen = menu.style.display === "block";
 
-		if (songMenu.classList.contains('open')) {
-			arrow.textContent = '▲';
+		if (isOpen) {
+			menu.style.display = "none";
+			arrow.textContent = "▼";
+			localStorage.setItem("songMenuOpen", "false");
 		} else {
-			arrow.textContent = '▼';
+			menu.style.display = "block";
+			arrow.textContent = "▲";
+			localStorage.setItem("songMenuOpen", "true");
 		}
 	}	
+
+	document.addEventListener("DOMContentLoaded", function () {
+		const menu = document.getElementById("songMenuList");
+		const arrow = document.getElementById("song-menu-arrow");
+
+		const isOpen = localStorage.getItem("songMenuOpen");
+
+		if (isOpen === "true") {
+			menu.style.display = "block";
+			arrow.textContent = "▲";
+		} else {
+			menu.style.display = "none";
+			arrow.textContent = "▼";
+		}
+	});
+
+	// 點擊選單外部時收合
+	document.addEventListener('click', function (event) {
+		const songMenu = document.getElementById('songMenuList');
+		const songTitle = document.querySelector('.song-menu-title');
+		const arrow = document.getElementById('song-menu-arrow');
+
+		if (
+			!songMenu.contains(event.target) &&
+			!songTitle.contains(event.target)
+		) {
+			songMenu.classList.remove('open');
+			arrow.textContent = '▼';
+		}
+	});
 
 	// 點擊畫面其他空白處時自動收合選單
 	document.addEventListener('click', function(e) {
@@ -506,7 +540,6 @@
 		// if (songMenu) songMenu.classList.remove('open');
 		// if (arrow) arrow.textContent = '▼';
 	});
-
 
 	//按照文字長度自動計算，歌曲標題文字顯示在同一行
 	function fitLyricsTitle() {
