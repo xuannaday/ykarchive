@@ -5,10 +5,11 @@ const videoData = {
     'tab-video1': {
         id: tab.dataset.videoId,
         player: null,
+		start: parseInt(tab.dataset.start || 0), //讀取影片指定起始時間（秒）
         subEl: 'subtitle-video1',
         container: 'player-container-video1'
     }
-}
+};
 
 function updateButtonUI(theme) {
   document.getElementById('btn-light').classList.remove('active');
@@ -58,7 +59,7 @@ function initVideo(tabId) {
         width: '100%',
         height: '100%',
         host: 'https://www.youtube-nocookie.com',
-        playerVars: { 'autoplay': 0, 'rel': 0, 'playsinline': 1 }, // 絕對不偷播
+        playerVars: { 'autoplay': 0, 'rel': 0, 'playsinline': 1 }, 
         events:{
           onReady:function(event){
 
@@ -68,6 +69,18 @@ function initVideo(tabId) {
                   syncLyricsWithVideo(event.target,"stdsa-lyrics");
                   bindLyricsInteraction(event.target,"stdsa-lyrics");
               }
+			  
+			  // 如果有指定影片起始時間，就跳轉到指定位置
+			  //if (vData.start > 0) {
+			  //	event.target.seekTo(vData.start, true);
+			  //}
+			  
+			  // 如果有指定影片起始時間，就跳轉到指定位置，不自動播放
+              if(vData.start > 0) {
+              	  event.target.cueVideoById({
+				   videoId: vData.id,
+			       startSeconds: vData.start
+			  });
           }
       }
     });
@@ -474,6 +487,39 @@ window.addEventListener('click', function(e) {
     }
 });
 
+//歌曲下拉式選單
+function toggleSongMenu() {
+    const menu = document.getElementById("songMenuList");
+    const arrow = document.getElementById("song-menu-arrow");
+
+    const isOpen = menu.style.display === "block";
+
+    if (isOpen) {
+        menu.style.display = "none";
+        arrow.textContent = "▼";
+        localStorage.setItem("songMenuOpen", "false");
+    } else {
+        menu.style.display = "block";
+        arrow.textContent = "▲";
+        localStorage.setItem("songMenuOpen", "true");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menu = document.getElementById("songMenuList");
+    const arrow = document.getElementById("song-menu-arrow");
+
+    const isOpen = localStorage.getItem("songMenuOpen");
+
+    if (isOpen === "true") {
+        menu.style.display = "block";
+        arrow.textContent = "▲";
+    } else {
+        menu.style.display = "none";
+        arrow.textContent = "▼";
+    }
+});
+
 // 點擊畫面其他空白處時自動收合選單
 document.addEventListener('click', function(e) {
     const container = document.querySelector('.menu-container');
@@ -493,20 +539,6 @@ document.addEventListener('click', function(e) {
     // if (songMenu) songMenu.classList.remove('open');
     // if (arrow) arrow.textContent = '▼';
 });
-
-//歌曲下拉式選單
-function toggleSongMenu() {
-    const songMenu = document.getElementById('songMenuList');
-    const arrow = document.getElementById('song-menu-arrow');
-
-    songMenu.classList.toggle('open');
-
-    if (songMenu.classList.contains('open')) {
-        arrow.textContent = '▲';
-    } else {
-        arrow.textContent = '▼';
-    }
-}
 
 //按照文字長度自動計算，歌曲標題文字顯示在同一行
 function fitLyricsTitle() {
