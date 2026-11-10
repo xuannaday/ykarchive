@@ -70,17 +70,13 @@ function initVideo(tabId) {
                   bindLyricsInteraction(event.target,"stdsa-lyrics");
               }
 			  
-			  // 如果有指定影片起始時間，就跳轉到指定位置
-			  //if (vData.start > 0) {
-			  //	event.target.seekTo(vData.start, true);
-			  //}
-			  
 			  // 如果有指定影片起始時間，就跳轉到指定位置，不自動播放
               if(vData.start > 0) {
               	  event.target.cueVideoById({
 				   videoId: vData.id,
 			       startSeconds: vData.start
 			  });
+			}
           }
       }
     });
