@@ -721,6 +721,18 @@
 		user-select: none;
 	}
 
+	/* 選單音符圖示 */
+	.song-note {
+		color: #3F9F9A;
+		font-size: 18px;
+		margin-left: 2px;
+	}
+	.song-icon {
+		width: 18px;
+		height: 18px;
+		flex: 0 0 18px;
+	}
+
 	.song-menu-list {
 		width: 100%;
 		text-align: left !important;
@@ -738,8 +750,6 @@
 		box-sizing: border-box;			/*避免寬度超出容器*/
 		margin-right: 5px;				/*連結內容右側保留5px的內部空間*/
 	}
-
-
 	
 	.menu-current {
 		font-weight: 700;
